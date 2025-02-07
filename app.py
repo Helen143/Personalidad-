@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from geopy.geocoders import Nominatim
+#from geopy.geocoders import Nominatim
 
 # Función para obtener la media mundial por edad y país
 def obtener_media_mundial():
@@ -32,13 +32,13 @@ def obtener_rango_edad(edad):
         return "60+"
 
 # Función para obtener el país del usuario usando la geolocalización
-def obtener_pais(ubicacion):
-    geolocator = Nominatim(user_agent="streamlit_personality_analysis")
-    location = geolocator.geocode(ubicacion)
-    if location:
-        return location.address.split(',')[-1].strip()  # Extraer el país
-    else:
-        return None
+#def obtener_pais(ubicacion):
+ #   geolocator = Nominatim(user_agent="streamlit_personality_analysis")
+#    location = geolocator.geocode(ubicacion)
+#    if location:
+#        return location.address.split(',')[-1].strip()  # Extraer el país
+#    else:
+#        return None
 
 # Función principal de la aplicación Streamlit
 def app():
@@ -61,8 +61,8 @@ def app():
 
     # Si el usuario proporciona una ubicación
     if ubicacion:
-        pais_usuario = obtener_pais(ubicacion)
-        if pais_usuario:
+  #      pais_usuario = obtener_pais(ubicacion)
+      if pais_usuario:
             st.write(f"Tu país es: {pais_usuario}")
             # Filtrar datos para ese país
             datos_pais = media_mundial[media_mundial["País"] == pais_usuario]
